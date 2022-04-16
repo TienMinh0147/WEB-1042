@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="newcss.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div><h1>Bai3 lab6 </h1></div>
+        <h2>Form dang ki</h2>
+        <form>
+        <p><label>Ho:  </label><input id="txtho" type="text" size="20"/><br></p>
+        <p><label>Ten: </label><input id="txtten" type="text" size="20"/><br></p>
+        <p>Ngay sinh: Ngay <select  id="txtngay"><script>x
+            for(i=1; i<=31; i++){
+                document.write("<option value='"+i+"'>"+i+"</option>");
+            }       
+                </script>           
+            </select>
+            Thang <select  id="txtthang"><script>
+            for(i=1; i<=12; i++){
+                document.write("<option value='"+i+"'>"+i+"</option>");
+            }       
+                </script>           
+            </select>
+            Nam <select><script>
+            for(i=1990; i<=2020; i++){
+                document.write("<option value='"+i+"'>"+i+"</option>");
+            }       
+                </script>           
+            </select>
+        </p>
+        <p><label>Gioi tinh: </label><input type="radio" value="Nam" name="gioitinh"/>Nam <input type="radio" value="Nu" name="gioitinh"/>Nu<br />
+            <p><label>So dien thoai:  </label><input id="txtdt" type="text" size="20"/><br></p>
+            <p><label>So thich:  </label>
+                <input type="checkbox" value="Doc sach" name="ckdocsach"/>Doc sach 
+                <input type="checkbox" value="Xem phim" name="ckxemphim"/>Xem phim
+                <input type="checkbox" value="Nghe" name="cknghe"/>Nghe<br />
+                &emsp;&emsp;&emsp;&ensp;&nbsp;<input type="checkbox" value="Da bong" name="ckdocsach"/>Da bong   
+                <input type="checkbox" value="May va" name="ckmayva"/>May va
+                <input type="checkbox" value="So thich" name="cksothich"/>So thich
+            <p><input type="Submit" value="Dang ky" onclick="validation()"></p>
+        </form>
+        <script>
+            function validation(){
+                var ck=true;
+                if(document.getElementById("txtten").value==""){
+                    document.getElementById("txtten").style.backgroundColor="red";
+                    alert("Ten khong duoc trong");
+                    ck=false;
+                }
+                if(document.getElementById("txtho").value==""){
+                    document.getElementById("txtho").style.backgroundColor="red";
+                    alert("Ho khong duoc trong");
+                    ck=false;
+            }
+            if(document.getElementById("txtthang").value==2){
+                if(document.getElementById("txtngay").value>29){
+                    alert("ngay sinh khong hop le");
+                    ck=false;
+                }
+            }
+            //dienthoai
+            var mau=/^\d{10 }$/;
+            var phone=document.getElementById("txtdt");
+                if (phone.value==""){
+                    alert("Dien thoai khong duoc trong");
+                    ck= false;
+            }else if(phone.value.match(mau)){
+                alert("Dien thoai phai 10 chu so");
+                ck= false;
+            }
+            if(ck==true){
+                alert("Ban dang ki thanh cong");
+            }
+        }
+        </script>
+    </body>
+</html>

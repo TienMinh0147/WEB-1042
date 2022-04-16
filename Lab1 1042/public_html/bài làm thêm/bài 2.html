@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <script>
+                var diem = 0;
+                var a = Math.floor(Math.random() * 101);
+                var b = Math.floor(Math.random() * 101);
+                alert(""+a+"+"+b+"=");
+                document.write("<p> Number 1 :" + a + "</p>");
+                document.write("<p> Number 2 :" + b + "</p>");
+                var c = prompt("Sum :");
+                if (c == (a + b)) {
+                    diem++;
+                    alert("Right");
+
+                } else {
+                    diem--;
+                    alert("Wrong");
+                }
+                document.write("<p> Point:" + diem + "</p>");
+
+            </script>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #game{
+                width: 800px;
+                align-content: center;
+            }
+            td{
+                width: 100px;
+                height: 100px;
+                background-color: yellow;
+                align-content: center;
+                vertical-align: middle;
+                font-size: 50px;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div>bai2 lab5</div>
+        <div id="game">
+            <table>
+                <tr>
+                    <td onclick="f(1)" id="o1"></td>
+                    <td onclick="f(2)" id="o2"></td>
+                    <td onclick="f(3)" id="o3"></td>
+                </tr>
+                <tr>
+                    <td onclick="f(4)" id="o4"></td>
+                    <td onclick="f(5)" id="o5"></td>
+                    <td onclick="f(6)" id="o6"></td>
+                </tr>
+                <tr>
+                    <td onclick="f(7)" id="o7"></td>
+                    <td onclick="f(8)" id="o8"></td>
+                    <td onclick="f(9)" id="o9"></td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            function f(n){
+                var select= document.getElementById("o"+n); 
+                var ok=false;
+                if (select.innerHTML==""){
+                    select.innerHTML="x";
+                    select.style.color="black";
+                    select.style.backgroundColor="white";
+                }
+                //check game
+                var arr= new Array();
+                for(i=0; i<9; i++){
+                    arr[i]= document.getElementById("o"+(i+1));
+                }
+                if((arr[0].innerHTML=='x' && arr[1].innerHTML=='x' &&
+                   arr[2].innerHTML=='x') ||(arr[3].innerHTML=='x' && arr[4].innerHTML=='x' && 
+                   arr[5].innerHTML=='x') || (arr[6].innerHTML=='x' && arr[7].innerHTML=='x' &&
+                   arr[8].innerHTML=='x')){
+            alert("you win!!!");
+                }
+                //may danh
+                do{
+                var i= Math.floor(Math.random()*10) +1;
+                var maySec= document.getElementById("o"+i);
+                if(maySec.innerHTML==""){
+                    maySec.innerHTML="0";
+                    maySec.style.color="white";
+                    maySec.style.backgroundColor="black";
+                    ok=true;
+                }
+            }while(ok==false);
+            }
+            </script>
+    </body>
+</html>
